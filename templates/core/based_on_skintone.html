@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Outfits Recommendation{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/based_on_skintone.css' %}">
+{% endblock %}
+
+{% block content %}
+    <!-- Harmony strategy form -->
+    <section>
+        <form method="post">
+            {% csrf_token %}
+            <label for="skin_tone">Select color harmony strategy:</label>
+            <select id="skin_tone" name="skin_tone" required>
+                <option value="" disabled selected>Choose an option</option>
+                <option value="complementary">Complementary</option>
+                <option value="analogous">Analogous</option>
+                <option value="triadic">Triadic</option>
+                <option value="monochromatic">Monochromatic</option>
+            </select>
+            <button type="submit">Get Recommendations</button>
+        </form>
+    </section>
+
+    <!-- Skin Tone -->
+    {% if clothing_items.skin_tone %}
+        <section>
+            <h2>Skin tone</h2>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                <span style="width: 1.5rem; height: 1.5rem; border-radius: 0.25rem; background-color: {{ clothing_items.skin_tone }}; border: 1px solid #ccc;" title="{{ clothing_items.skin_tone }}"></span>
+            </div>
+        </section>
+    {% endif %}
+
+    <!-- Accessories -->
+    {% if clothing_items.accessories %}
+        <section>
+            <h2>Accessories</h2>
+            <div class="clothing-items">
+                {% for item in clothing_items.accessories %}
+                    <div class="clothing-item">
+                        <img src="{{ item.image.url }}" alt="{{ item.name }}">
+                        <div class="color-swatch" style="background-color: {{ item.color_hex|default:'#ccc' }};" title="{{ item.color_hex }}"></div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    {% endif %}
+
+    <!-- Tops -->
+    {% if clothing_items.tops %}
+        <section>
+            <h2>Tops</h2>
+            <div class="clothing-items">
+                {% for item in clothing_items.tops %}
+                    <div class="clothing-item">
+                        <img src="{{ item.image.url }}" alt="{{ item.name }}">
+                        <div class="color-swatch" style="background-color: {{ item.color_hex|default:'#ccc' }};" title="{{ item.color_hex }}"></div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    {% endif %}
+
+    <!-- Legs -->
+    {% if clothing_items.legs %}
+        <section>
+            <h2>Legs</h2>
+            <div class="clothing-items">
+                {% for item in clothing_items.legs %}
+                    <div class="clothing-item">
+                        <img src="{{ item.image.url }}" alt="{{ item.name }}">
+                        <div class="color-swatch" style="background-color: {{ item.color_hex|default:'#ccc' }};" title="{{ item.color_hex }}"></div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    {% endif %}
+
+    <!-- Feet -->
+    {% if clothing_items.feet %}
+        <section>
+            <h2>Feet</h2>
+            <div class="clothing-items">
+                {% for item in clothing_items.feet %}
+                    <div class="clothing-item">
+                        <img src="{{ item.image.url }}" alt="{{ item.name }}">
+                        <div class="color-swatch" style="background-color: {{ item.color_hex|default:'#ccc' }};" title="{{ item.color_hex }}"></div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    {% endif %}
+
+{% endblock %}

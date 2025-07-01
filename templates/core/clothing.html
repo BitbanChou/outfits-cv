@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Upload clothes{% endblock  %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/clothing.css' %}">
+{% endblock %}
+
+{% block content %}
+    <!-- section to upload clothes -->
+    <div class="upload-section">
+        <h2>Upload clothes</h2>
+        <form method="post" enctype="multipart/form-data" class="upload_clothing">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+    <!-- section to upload clothes -->
+
+    <!-- section to accesories -->
+    <div class="clothing-section">
+        <h2>Accesories</h2>
+        <div class="clothing-list">
+            {% for item in clothing_items.accessories %}
+                <div class="clothing-item">
+                    <img src="{{ item.image.url }}" alt="Clothes of {{ item.user }}">
+                    <div class="color-swatch" style="background-color: {{ item.color_hex|default:'#ccc' }};" title="{{ item.color_hex }}"></div>
+                    <a href="{% url 'clothing_delete' item.id %}" class="delete-button">Delete Item</a>
+                </div>
+            {% empty %}
+                <p class="no-information">No accesories available.</p>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- section to accesories -->
+
+    <!-- section to tops -->
+    <div class="clothing-section">
+        <h2>Tops</h2>
+        <div class="clothing-list">
+            {% for item in clothing_items.tops %}
+                <div class="clothing-item">
+                    <img src="{{ item.image.url }}" alt="Clothes of {{ item.user }}">
+                    <div class="color-swatch" style="background-color: {{ item.color_hex|default:'#ccc' }};" title="{{ item.color_hex }}"></div>
+                    <a href="{% url 'clothing_delete' item.id %}" class="delete-button">Delete Item</a>
+                </div>
+            {% empty %}
+                <p class="no-information">No tops available.</p>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- section to tops -->
+
+    <!-- section to legs -->
+    <div class="clothing-section">
+        <h2>Legs</h2>
+        <div class="clothing-list">
+            {% for item in clothing_items.legs %}
+                <div class="clothing-item">
+                    <img src="{{ item.image.url }}" alt="Clothes of {{ item.user }}">
+                    <div class="color-swatch" style="background-color: {{ item.color_hex|default:'#ccc' }};" title="{{ item.color_hex }}"></div>
+                    <a href="{% url 'clothing_delete' item.id %}" class="delete-button">Delete Item</a>
+                </div>
+            {% empty %}
+                <p class="no-information">No legs available.</p>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- section to legs -->
+
+    <!-- section to feet -->
+    <div class="clothing-section">
+        <h2>Feet</h2>
+        <div class="clothing-list">
+            {% for item in clothing_items.feet %}
+                <div class="clothing-item">
+                    <img src="{{ item.image.url }}" alt="Clothes of {{ item.user }}">
+                    <div class="color-swatch" style="background-color: {{ item.color_hex|default:'#ccc' }};" title="{{ item.color_hex }}"></div>
+                    <a href="{% url 'clothing_delete' item.id %}" class="delete-button">Delete Item</a>
+                </div>
+            {% empty %}
+                <p class="no-information">No feet available.</p>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- section to feet -->
+{% endblock %}

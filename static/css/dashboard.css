@@ -1,0 +1,94 @@
+/* === Dashboard Container === */
+.dashboard-intro {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: linear-gradient(to bottom right, #f0f4ff, #ffffff);
+    border: 1px solid #dbeafe;
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+/* === Welcome Heading === */
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1d4ed8;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* === Subsection Headings === */
+.dashboard-intro h2 {
+    font-size: 1.375rem;
+    color: #1f2937;
+    font-weight: 600;
+    margin: 2rem 0 1rem;
+    text-align: center;
+}
+
+/* === Paragraphs === */
+.dashboard-intro p {
+    font-size: 1.05rem;
+    color: #374151;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* === List of Harmony Types === */
+.color-harmony-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.color-harmony-card {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s ease;
+}
+
+.color-harmony-card:hover {
+    transform: translateY(-4px);
+}
+
+.color-harmony-card h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
+
+.color-harmony-card p {
+    font-size: 0.95rem;
+    color: #4b5563;
+    line-height: 1.5;
+}
+
+.harmony-img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin: 0 auto 0.75rem;
+    display: block;
+}
+
+/* === Responsive === */
+@media (max-width: 640px) {
+    .dashboard-intro {
+        padding: 1.25rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .color-harmony-list {
+        grid-template-columns: 1fr;
+    }
+}

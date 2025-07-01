@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'logo/logo.ico' %}" type="image/x-icon">
+    <title>OR - {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block styles %}{% endblock %}
+</head>
+<body>
+    {% if request.user.is_authenticated %}
+        <div class="menu">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="{% url 'dashboard' %}" class="{% if request.path == '/' %}active{% endif %}">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'skincolor' %}" class="{% if request.path == '/skincolor/' %}active{% endif %}">
+                            SkinColor
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'clothing' %}" class="{% if request.path == '/clothing/' %}active{% endif %}">
+                            Clothing
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'based_on_skintone' %}" class="{% if request.path == '/based_on_skintone/' %}active{% endif %}">
+                            Outfits Recommendation
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'logout' %}">
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    {% endif %}
+
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Skincolor{% endblock  %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/skincolor.css' %}">
+{% endblock %}
+
+{% block content %}
+    <!-- Upload face photo -->
+    {% if not face_photo %}
+        <div class="form-skincolor">
+            <h2>Upload skincolor</h2>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Upload</button>
+            </form>
+        </div>
+    {% endif %}
+    <!-- Upload face photo -->
+
+    <!-- Skincolor information -->
+    {% if face_photo %}
+        <div class="skincolor-info">
+            <h2>Face Photo</h2>
+            <img src="{{ face_photo.image.url }}" alt="Image of {{ face_photo.user }}" style="width: 200px; height: 200px;">
+            <p class="information">
+                If you wanna change your face photo, first you must delete actually face photo and then you upload a new photo.
+            </p>
+            <a href="{% url 'facephoto_delete' face_photo.id %}" class="delete-button">Delete Face Photo</a>
+        </div>
+    {% endif %}
+    <!-- Skincolor information -->
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}Delete Clothing{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/confirm_delete.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="delete-confirmation">
+        <h2>Delete Clothing Item</h2>
+        <p>Are you sure you want to delete this item ({{ item.category }})?</p>
+        <img src="{{ item.image.url }}" alt="Clothing image" width="200"><br><br>
+
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="delete-button">Yes, delete</button>
+            <a href="{% url 'clothing' %}" class="cancel-button">Cancel</a>
+        </form>
+    </div>
+{% endblock %}

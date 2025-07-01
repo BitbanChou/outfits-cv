@@ -1,0 +1,49 @@
+.form-skincolor form input[type="file"] {
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background-color: #f9fafb;
+    font-size: 0.95rem;
+}
+
+/* --> Photo Display Section */
+.skincolor-info {
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: #fefefe;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+    text-align: center;
+}
+
+.skincolor-info img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1rem;
+}
+
+.information {
+    font-size: 15px;
+    color: #6b7280;
+    margin-bottom: 16px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --> Responsive */
+@media (max-width: 600px) {
+    .form-skincolor,
+    .skincolor-info {
+        padding: 1.25rem;
+    }
+
+    .skincolor-info img {
+        width: 100%;
+        height: auto;
+    }
+}

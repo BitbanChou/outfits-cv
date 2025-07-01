@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1>Welcome {{ request.user.first_name }}</h1>
+
+    <section class="dashboard-intro">
+        <p>
+            <strong>Team Outfit Recommender</strong> is a personalized system that helps you discover clothing combinations 
+            that best suit your <strong>skin tone</strong> using color theory. Just upload a face photo and your clothing items,
+            and the system recommends harmonious outfits.
+        </p>
+
+        <h2>How Color Theory Works</h2>
+        <p>
+            Color theory uses relationships between hues on the color wheel to create aesthetically pleasing combinations.
+            We analyze your skin tone and recommend clothing based on these harmony types:
+        </p>
+
+        <!-- Cards Grid -->
+        <div class="color-harmony-list">
+            <div class="color-harmony-card">
+                <img src="{% static 'images/harmony/complementary.png' %}" alt="Complementary" class="harmony-img">
+                <h3>Complementary</h3>
+                <p>Colors opposite on the wheel (e.g., blue & orange) provide bold contrast and visual energy.</p>
+            </div>
+            <div class="color-harmony-card">
+                <img src="{% static 'images/harmony/analogous.png' %}" alt="Analogous" class="harmony-img">
+                <h3>Analogous</h3>
+                <p>Colors next to each other (e.g., green, teal, blue) feel smooth and natural together.</p>
+            </div>
+            <div class="color-harmony-card">
+                <img src="{% static 'images/harmony/triadic.png' %}" alt="Triadic" class="harmony-img">
+                <h3>Triadic</h3>
+                <p>Three evenly spaced hues (e.g., red, yellow, blue) offer vibrant, balanced contrast.</p>
+            </div>
+            <div class="color-harmony-card">
+                <img src="{% static 'images/harmony/monochromatic.png' %}" alt="Monochromatic" class="harmony-img">
+                <h3>Monochromatic</h3>
+                <p>Different shades and tones of the same hue create elegant, cohesive outfits.</p>
+            </div>
+        </div>
+    </section>
+{% endblock %}

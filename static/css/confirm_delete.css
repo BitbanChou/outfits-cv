@@ -1,0 +1,41 @@
+/* -------------------> Confirmation container */
+.delete-confirmation {
+    max-width: 500px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    text-align: center;
+}
+
+/* -------------------> Text message */
+.delete-confirmation p {
+    font-size: 1rem;
+    color: #374151;
+    margin-bottom: 1.5rem;
+}
+
+/* -------------------> Image preview */
+.delete-confirmation img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* -------------------> Responsive */
+@media (max-width: 480px) {
+    .delete-confirmation {
+        padding: 1.5rem;
+    }
+
+    .delete-confirmation img {
+        width: 100%;
+        height: auto;
+    }
+
+}

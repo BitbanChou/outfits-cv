@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Delete Face photo{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/confirm_delete.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="delete-confirmation">
+        <h2>Delete Face Photo</h2>
+        <p>Are you sure you want to delete your face photo?</p>
+        <img src="{{ face_photo.image.url }}" alt="{{ face_photo.user }}">
+
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="delete-button">Yes, delete</button>
+            <a href="{% url 'skincolor' %}" class="cancel-button">Cancel</a>
+        </form>
+    </div>
+{% endblock %}

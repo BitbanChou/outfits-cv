@@ -1,0 +1,52 @@
+/* -------------------> Upload Section */
+.upload_clothing input[type="file"],
+.upload_clothing select {
+    padding: 0.625rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background-color: #f9fafb;
+    font-size: 0.95rem;
+}
+
+/* -------------------> Grid layout for clothing items */
+.clothing-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: 1.5rem;
+}
+
+/* -------------------> Individual clothing item */
+.clothing-item {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+    transition: box-shadow 0.2s ease;
+}
+
+.clothing-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.clothing-item img {
+    width: 10.8rem;
+    height: 10.8rem;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+/* -------------------> Responsive adjustments */
+@media (max-width: 600px) {
+    .upload-section,
+    .clothing-item {
+        padding: 1.25rem;
+    }
+
+    .clothing-item img {
+        width: 100%;
+        height: auto;
+    }
+}
